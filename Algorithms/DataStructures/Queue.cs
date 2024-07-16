@@ -9,11 +9,12 @@ namespace Algorithms.DataStructures
     public class Queue<T>
     {
         private T[] queue;
-
         private int head = 0;
         private int tail = 0;
-        private int size;
-        public Queue(int size = 10) 
+        private int count = 0; 
+        private readonly int size;
+
+        public Queue(int size = 10)
         {
             this.size = size;
             queue = new T[size];
@@ -21,37 +22,46 @@ namespace Algorithms.DataStructures
 
         public void Enqueue(T element)
         {
-            if(tail > size)
+            if (count == size)
             {
                 throw new Exception("Queue overflow");
             }
 
             queue[tail] = element;
-
-            if(tail == size)
-            {
-                tail = 1;
-            }
-            else
-            {
-                tail++;
-            }
+            tail = (tail + 1) % size;
+            count++;
         }
 
         public T Dequeue()
         {
-            T element = queue[head];
-
-            if(head == size)
+            if (count == 0)
             {
-                head = 1;
-            } 
-            else
-            {
-                head++;
+                throw new Exception("Queue underflow");
             }
 
+            T element = queue[head];
+            head = (head + 1) % size;
+            count--;
             return element;
+        }
+
+        public override string ToString()
+        {
+            if (count == 0)
+            {
+                return "Queue is empty";
+            }
+
+            var builder = new StringBuilder();
+            builder.Append("Queue items: ");
+
+            for (int i = 0; i < count; i++)
+            {
+                int index = (head + i) % size;
+                builder.Append(queue[index] + " ");
+            }
+
+            return builder.ToString().TrimEnd();
         }
     }
 }

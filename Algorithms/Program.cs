@@ -4,16 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Algorithms.DataStructures.Stack<int> stack = new Algorithms.DataStructures.Stack<int>();
+            Algorithms.DataStructures.Queue<int> queue = new Algorithms.DataStructures.Queue<int>();
 
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            stack.Push(4);
-            stack.Push(5);
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Enqueue(4);
+            queue.Enqueue(5);
 
-            Console.WriteLine(stack.ToString());
-
+            Console.WriteLine(queue.ToString());
         }
     }
 }
