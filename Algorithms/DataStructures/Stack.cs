@@ -61,7 +61,7 @@ namespace Algorithms.DataStructures
         {
             if (top < 0)
             {
-                throw new Exception("Exeption: Stack is empty");
+                return "Stack is empty";
             }
             else
             {
