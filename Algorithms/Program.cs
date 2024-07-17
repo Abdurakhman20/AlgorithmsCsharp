@@ -1,4 +1,5 @@
 ﻿using Algorithms.DataStructures;
+using System.Collections;
 
 namespace Program 
 {
@@ -6,7 +7,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-           
+            
         }
     } 
 }
