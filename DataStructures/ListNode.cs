@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.DataStructures
+namespace DataStructures
 {
     public class ListNode<T>
     {

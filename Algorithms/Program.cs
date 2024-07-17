@@ -1,13 +1,12 @@
-﻿using Algorithms.DataStructures;
-using System.Collections;
+﻿using System.Collections;
 
-namespace Program 
+namespace Algorithms 
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            
+           
         }
     } 
 }
