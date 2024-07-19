@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,6 +62,74 @@ namespace Algorithms
                 int tmp = array[minIndex];
                 array[minIndex] = array[i];
                 array[i] = tmp;
+            }
+        }
+
+        public static void MergeSort(int[] array, int left, int right)
+        {
+            if(left < right)
+            {
+                int middle = left + (right - left) / 2;
+
+                MergeSort(array, left, middle);
+                MergeSort(array, middle + 1, right);
+
+                Merge(array, left, middle, right);
+            }
+        }
+        private static void Merge(int[] array, int left, int middle, int right)
+        {
+            int leftArrayLength = middle - left + 1;
+            int rightArrayLength = right - middle;
+
+
+            int[] leftArray = new int[leftArrayLength];
+            int[] rightArray = new int[rightArrayLength];
+
+            int i;
+            int j;
+            
+            for(i = 0; i < leftArrayLength; i++)
+            {
+                leftArray[i] = array[left + i];
+            }
+
+            for(j = 0; j < rightArrayLength; j++)
+            {
+                rightArray[j] = array[middle + 1 + j];
+            }
+
+            int k = left;
+            i = 0;
+            j = 0;
+
+            while (i < leftArrayLength && j < rightArrayLength)
+            {
+                if (leftArray[i] <= rightArray[j])
+                {
+                    array[k] = leftArray[i];
+                    i++;
+                }
+                else
+                {
+                    array[k] = rightArray[j];
+                    j++;
+                }
+                k++;
+            }
+
+            while (i < leftArrayLength)
+            {
+                array[k] = leftArray[i];
+                i++;
+                k++;
+            }
+
+            while (j < rightArrayLength)
+            {
+                array[k] = rightArray[j];
+                j++;
+                k++;
             }
         }
     }
