@@ -77,6 +77,7 @@ namespace Algorithms
                 Merge(array, left, middle, right);
             }
         }
+
         private static void Merge(int[] array, int left, int middle, int right)
         {
             int leftArrayLength = middle - left + 1;
@@ -131,6 +132,41 @@ namespace Algorithms
                 j++;
                 k++;
             }
+        }
+
+        public static void QuickSort(int[] array, int left, int right)
+        {       
+            if (left < right)
+            {
+                int pivotIndex = Partition(array, left, right);
+                QuickSort(array, left, pivotIndex - 1);
+                QuickSort(array, pivotIndex + 1, right);
+            }
+
+        }
+        private static int Partition(int[] array, int left, int right)
+        {
+            int pivot = array[right];
+            int i = left - 1;
+
+            for (int j = left; j < right; j++)
+            {
+                if (array[j] < pivot)
+                {
+                    i++;
+                    Swap(array, i, j);
+                }
+            }
+
+            Swap(array, i + 1, right);
+        
+            return i + 1;
+        }
+        private static void Swap(int[] array, int i, int j)
+        {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
     }
 }
