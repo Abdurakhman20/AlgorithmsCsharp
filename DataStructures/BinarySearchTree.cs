@@ -1,8 +1,10 @@
-﻿namespace DataStructures
+﻿using System.Xml.Linq;
+
+namespace DataStructures
 {
     public class BinarySearchTree
     {
-        public TreeNode Root { get; set; } = null;
+        public TreeNode Root { get; private set; } = null;
 
         public void Insert(int key)
         {
@@ -31,7 +33,7 @@
             return node;
         }
 
-        public TreeNode? Search(TreeNode root, int key)
+        public TreeNode Search(TreeNode root, int key)
         {
             if(root == null || root.Key == key)
             {
@@ -46,6 +48,50 @@
             
             return Search(root.Left, key);
             
+        }
+
+        public TreeNode Delete(TreeNode root, int key)
+        {
+            if(root == null)
+            {
+                return root;
+            }
+
+            if(key < root.Key)
+            {
+                root.Left = Delete(root.Left, key);
+            } 
+            else if(key > root.Key)
+            {
+                root.Right = Delete(root.Right, key);
+            }
+            else
+            {
+                if(root.Left == null)
+                {
+                    return root.Right;
+                }
+                else if(root.Right == null)
+                {
+                    return root.Left;
+                }
+
+                root.Key = MinValue(root.Right);
+                root.Right = Delete(root.Right, root.Key);
+            }
+
+            return root;
+        }
+
+        private int MinValue(TreeNode root)
+        {
+            int minv = root.Key;
+            while (root.Left != null)
+            {
+                minv = root.Left.Key;
+                root = root.Left;
+            }
+            return minv;
         }
     }
 }
