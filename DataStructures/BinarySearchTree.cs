@@ -117,5 +117,17 @@ namespace DataStructures
             PrintPreorder(root.Left);
             PrintPreorder(root.Right);
         }
+
+        public static void PrintPostorder(TreeNode root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            PrintPostorder(root.Left);
+            PrintPostorder(root.Right);
+            Console.Write(root.Key.ToString() + " ");
+        }
     }
 }

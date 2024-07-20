@@ -18,7 +18,7 @@ namespace Algorithms
             bst.Insert(32);
             bst.Insert(40);
 
-            DataStructures.BinarySearchTree.PrintPreorder(bst.Root);
+            DataStructures.BinarySearchTree.PrintPostorder(bst.Root);
         }
     } 
 }
