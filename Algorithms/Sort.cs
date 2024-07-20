@@ -134,39 +134,39 @@ namespace Algorithms
             }
         }
 
-        public static void QuickSort(int[] array, int left, int right)
+        public static void QuickSort(int[] array, int minIndex, int maxIndex)
         {       
-            if (left < right)
+            if (minIndex < maxIndex)
             {
-                int pivotIndex = Partition(array, left, right);
-                QuickSort(array, left, pivotIndex - 1);
-                QuickSort(array, pivotIndex + 1, right);
+                int pivotIndex = FindPivot(array, minIndex, maxIndex);
+                QuickSort(array, minIndex, pivotIndex - 1);
+                QuickSort(array, pivotIndex + 1, maxIndex);
             }
 
         }
-        private static int Partition(int[] array, int left, int right)
+        private static int FindPivot(int[] array, int minIndex, int maxIndex)
         {
-            int pivot = array[right];
-            int i = left - 1;
+            int pivot = minIndex - 1;
+            int temp;
 
-            for (int j = left; j < right; j++)
+            for (int i = minIndex; i < maxIndex; i++)
             {
-                if (array[j] < pivot)
+                if (array[i] < array[maxIndex])
                 {
-                    i++;
-                    Swap(array, i, j);
+                    pivot++;
+                    temp = array[pivot];
+                    array[pivot] = array[i];
+                    array[i] = temp;
                 }
             }
 
-            Swap(array, i + 1, right);
+            pivot++;
+            temp = array[pivot];
+            array[pivot] = array[maxIndex];
+            array[maxIndex] = temp;
+
+            return pivot;
+        }
         
-            return i + 1;
-        }
-        private static void Swap(int[] array, int i, int j)
-        {
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
     }
 }
