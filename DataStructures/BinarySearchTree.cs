@@ -30,5 +30,22 @@
 
             return node;
         }
+
+        public TreeNode? Search(TreeNode root, int key)
+        {
+            if(root == null || root.Key == key)
+            {
+                return root;
+            }
+
+            if(key > root.Key)
+            {
+                return Search(root.Right, key);
+            } 
+            
+            
+            return Search(root.Left, key);
+            
+        }
     }
 }
