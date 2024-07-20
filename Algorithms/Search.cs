@@ -63,5 +63,32 @@ namespace Algorithms
             if (i < L - 1) return i;
             else return -1;
         }
+
+        public static int BinarySearch(int[] sortedArray, int target)
+        {
+            int start = 0;
+            int end = sortedArray.Length;
+            int middle;
+
+            while(start < end)
+            {
+                middle = (start + end) / 2;
+
+                if (sortedArray[middle] == target)
+                {
+                    return middle;
+                } 
+                else if (sortedArray[middle] < target) 
+                {
+                    start = middle + 1;
+                }
+                else
+                {
+                    end = middle - 1;
+                }
+            }
+
+            return -1;
+        }
     }
 }

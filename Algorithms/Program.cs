@@ -6,13 +6,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            int[] array = new int[] { 90, 9, 111, 11, 1, 0 };
-            Sort.QuickSort(array, 0, array.Length - 1);
+            int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            foreach (int i in array)
-            {
-                Console.WriteLine(i);
-            }
+            Console.WriteLine(Search.BinarySearch(arr, 5));
+
         }
     } 
 }
