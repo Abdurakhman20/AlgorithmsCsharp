@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace DataStructures
 {
-    public class Queue<T>
+    public class MyQueue<T>
     {
         private T[] queue;
         private int head = 0;
@@ -14,7 +10,7 @@ namespace DataStructures
         private int count = 0; 
         private readonly int size;
 
-        public Queue(int size = 10)
+        public MyQueue(int size = 10)
         {
             this.size = size;
             queue = new T[size];

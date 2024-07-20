@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Collections;
+using System.Xml.Linq;
 
 namespace DataStructures
 {
@@ -33,8 +34,9 @@ namespace DataStructures
             return node;
         }
 
-        public TreeNode Search(TreeNode root, int key)
+        public static TreeNode DepthFirstSearch(TreeNode root, int key)
         {
+            // Depth First Search (DFS) - поиск в глубину, для графа или дерева
             if(root == null || root.Key == key)
             {
                 return root;
@@ -42,15 +44,49 @@ namespace DataStructures
 
             if(key > root.Key)
             {
-                return Search(root.Right, key);
+                return DepthFirstSearch(root.Right, key);
             } 
             
             
-            return Search(root.Left, key);
+            return DepthFirstSearch(root.Left, key);
             
         }
 
-        public TreeNode Delete(TreeNode root, int key)
+        public static TreeNode BreadthFirstSearch(TreeNode root, int key)
+        {
+            // Breadth First Search (BFS) - поиск в ширину, для графа или дерева. Проверяем постепенно по уровням.
+            if(root == null)
+            {
+                return root;
+            }
+
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+
+            while(queue.Count > 0)
+            {
+                TreeNode current = queue.Dequeue();
+
+                if(current.Key == key)
+                {
+                    return current;
+                }
+
+                if(current.Left != null)
+                {
+                    queue.Enqueue(current.Left);
+                }
+
+                if(current.Right != null)
+                {
+                    queue.Enqueue(current.Right);
+                }
+            }
+
+            return null;
+        }
+
+        public static TreeNode Delete(TreeNode root, int key)
         {
             if(root == null)
             {
