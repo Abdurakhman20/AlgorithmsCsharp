@@ -101,9 +101,21 @@ namespace DataStructures
                 return;
             }
 
-            BinarySearchTree.PrintInorder(root.Left);
+            PrintInorder(root.Left);
             Console.Write(root.Key.ToString() + " ");
-            BinarySearchTree.PrintInorder(root.Right);
+            PrintInorder(root.Right);
+        }
+
+        public static void PrintPreorder(TreeNode root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            Console.Write(root.Key.ToString() + " ");
+            PrintPreorder(root.Left);
+            PrintPreorder(root.Right);
         }
     }
 }
