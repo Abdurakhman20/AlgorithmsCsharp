@@ -6,9 +6,9 @@ namespace DataStructures
     {
         public TreeNode Root { get; private set; } = null;
 
-        public void Insert(int key)
+        public void Insert(int key) 
         {
-            Root = InsertItem(Root, key);
+            Root = BinarySearchTree.InsertItem(Root, key);
         }
 
         private static TreeNode InsertItem(TreeNode node, int key)
@@ -76,14 +76,14 @@ namespace DataStructures
                     return root.Left;
                 }
 
-                root.Key = MinValue(root.Right);
+                root.Key = BinarySearchTree.MinValue(root.Right);
                 root.Right = Delete(root.Right, root.Key);
             }
 
             return root;
         }
 
-        private int MinValue(TreeNode root)
+        private static int MinValue(TreeNode root)
         {
             int minv = root.Key;
             while (root.Left != null)
@@ -92,6 +92,18 @@ namespace DataStructures
                 root = root.Left;
             }
             return minv;
+        }
+
+        public static void PrintInorder(TreeNode root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            BinarySearchTree.PrintInorder(root.Left);
+            Console.Write(root.Key.ToString() + " ");
+            BinarySearchTree.PrintInorder(root.Right);
         }
     }
 }
