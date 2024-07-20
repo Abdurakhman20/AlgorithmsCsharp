@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataStructures 
 { 
-    public class LinkedList<T>
+    public class MyLinkedList<T>
     {
         public ListNode<T>? First { get; private set; }
         public ListNode<T>? Last { get; private set; }
         public int Count { get; private set; }
 
-        public LinkedList()
+        public MyLinkedList()
         {
             this.First = null;
             this.Last = null;

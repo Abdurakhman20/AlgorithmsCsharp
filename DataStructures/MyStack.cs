@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace DataStructures
 {
-    public class Stack<T>
+    public class MyStack<T>
     {
         static readonly int MAX = 1000;
         int top;
         readonly T[] stack = new T[MAX];
 
-        public Stack()
+        public MyStack()
         {
             top = -1;
         }
