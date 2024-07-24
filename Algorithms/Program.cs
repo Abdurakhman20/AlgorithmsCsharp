@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Leetcode.Array;
+using Leetcode.TwoPointers;
 
 namespace Algorithms 
 {
@@ -7,8 +8,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            int[] arr = { 100, 4, 200, 1, 3, 2 };
-            var res = LongestConsecutiveSequence.LongestConsecutive(arr);
+            var res = ValidPalindrome.IsPalindrome("A man, a plan, a canal: Panama");
             Console.WriteLine(res);
         }
     } 
