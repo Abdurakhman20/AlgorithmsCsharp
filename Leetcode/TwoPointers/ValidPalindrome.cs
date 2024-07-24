@@ -1,28 +1,33 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Leetcode.TwoPointers
+﻿namespace Leetcode.TwoPointers
 {
     public class ValidPalindrome
     {
         public static bool IsPalindrome(string s)
         {
-            s = Regex.Replace(s, @"[^a-zA-Z0-9]", "").ToLower();
-
             int start = 0;
             int end = s.Length - 1;
 
-            for(int i = 0; i < s.Length; i++)
+            while (start < end)
             {
-                if(start <= end)
+                while (start < end && !char.IsLetterOrDigit(s[start]))
                 {
-                    if (s[start] != s[end])
-                    {
-                        return false;
-                    }
+                    start++;
                 }
-                start += 1;
-                end -= 1;
+
+                while (start < end && !char.IsLetterOrDigit(s[end]))
+                {
+                    end--;
+                }
+
+                if (char.ToLower(s[start]) != char.ToLower(s[end]))
+                {
+                    return false;
+                }
+
+                start++;
+                end--;
             }
+
 
             return true;
         }
