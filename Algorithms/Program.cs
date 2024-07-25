@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using Leetcode.Array;
-using Leetcode.TwoPointers;
+﻿using System.Globalization;
+
 
 namespace Algorithms 
 {
@@ -8,8 +7,8 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var res = ValidPalindrome.IsPalindrome("A man, a plan, a canal: Panama");
-            Console.WriteLine(res);
+            
         }
     } 
 }
+
