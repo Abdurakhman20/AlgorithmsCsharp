@@ -2,7 +2,7 @@
 {
     public class TwoSumInputArrayIsSorted
     {
-        public int[] TwoSum(int[] numbers, int target)
+        public static int[] TwoSumSortedArray(int[] numbers, int target)
         {
             int start = 0;
             int end = numbers.Length - 1;
